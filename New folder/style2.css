@@ -1,0 +1,332 @@
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. NAVIGATION BAR
+   ========================================================================== */
+.main-navbar {
+    background-color: rgba(13, 13, 13, 0.95);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #222;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav-logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-logo span {
+    color: #888888;
+    font-weight: 300;
+    margin-left: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   3. HERO / SPLASH LANDING
+   ========================================================================== */
+.splash-landing {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Placeholder dark background overlay image */
+    background: url('https://unsplash.com') no-repeat center center/cover;
+}
+
+.scrim-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13,13,13,0.4) 0%, rgba(13,13,13,0.95) 100%);
+    z-index: 1;
+}
+
+.brand-wrapper {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    max-width: 800px;
+}
+
+.sub-tag {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #888888;
+    margin-bottom: 15px;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #cccccc;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.scroll-trigger-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+    transition: all 0.4s ease;
+}
+
+.scroll-trigger-btn:hover {
+    background-color: #ffffff;
+    color: #0d0d0d;
+}
+
+/* ==========================================================================
+   4. PORTFOLIO MASONRY GALLERY
+   ========================================================================== */
+.portfolio-grid-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 30px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.accent-line {
+    width: 40px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: 20px auto 0 auto;
+}
+
+/* Flex Masonry Layout */
+.flex-masonry-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.photo-card {
+    position: relative;
+    flex: 1 1 calc(33.333% - 20px); /* 3 columns layout */
+    min-width: 300px;
+    height: 450px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover Zoom Effect */
+.photo-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption Slide Up Overlay */
+.card-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.photo-card:hover .card-caption {
+    opacity: 1;
+}
+
+.card-caption h3 {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   5. CONTACT FOOTER
+   ========================================================================== */
+.studio-footer {
+    background-color: #050505;
+    padding: 80px 0 30px 0;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 0 30px;
+    margin-bottom: 60px;
+}
+
+.footer-brand {
+    flex: 1 1 300px;
+}
+
+.footer-brand h3 {
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-brand p {
+    color: #888888;
+    max-width: 320px;
+    font-size: 14px;
+}
+
+.footer-contact-info {
+    flex: 1 1 300px;
+}
+
+.footer-contact-info h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.footer-contact-info ul {
+    list-style: none;
+}
+
+.footer-contact-info li {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 12px;
+}
+
+.footer-contact-info li strong {
+    color: #ffffff;
+    display: inline-block;
+    width: 120px;
+    font-weight: 500;
+}
+
+.footer-bottom-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 30px 0 30px;
+    border-top: 1px solid #111;
+    text-align: center;
+}
+
+.footer-bottom-bar p {
+    font-size: 12px;
+    color: #444444;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (MOBILE FIXES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+
+    .photo-card {
+        flex: 1 1 100%; /* Stacks images vertically on mobile */
+        height: 350px;
+    }
+    
+    /* Make captions visible without hover on mobile devices */
+    .card-caption {
+        opacity: 1;
+        background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    }
+}
